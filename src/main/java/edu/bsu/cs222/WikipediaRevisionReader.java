@@ -1,6 +1,7 @@
+package edu.bsu.cs222;
+
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.nio.charset.Charset;
@@ -23,7 +24,7 @@ public class WikipediaRevisionReader {
         try{
             URL url = new URL(encodedUrlString);
             URLConnection URLConnection = url.openConnection();
-            URLConnection.setRequestProperty("User-Agent","WikipediaRevisionReader/0.1(landen.finlinson@bsu.edu)");
+            URLConnection.setRequestProperty("User-Agent","edu.bsu.cs222.WikipediaRevisionReader/0.1(landen.finlinson@bsu.edu)");
             InputStream inputStream = URLConnection.getInputStream();
 
         }catch (IOException malformedURLException){

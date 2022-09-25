@@ -26,10 +26,12 @@ public class WikipediaRevisionReader {
             URLConnection URLConnection = url.openConnection();
             URLConnection.setRequestProperty("User-Agent","edu.bsu.cs222.WikipediaRevisionReader/0.1(landen.finlinson@bsu.edu)");
             InputStream inputStream = URLConnection.getInputStream();
+            WikipediaRevisionParser parser = new WikipediaRevisionParser();
+            String timestamp= parser.parse(inputStream);
+            return timestamp;
 
         }catch (IOException malformedURLException){
             throw new RuntimeException(malformedURLException);
         }
-        return urlString;
     }
 }

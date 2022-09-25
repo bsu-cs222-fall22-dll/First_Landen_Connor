@@ -12,15 +12,11 @@ public class WikipediaRevisionReader {
         WikipediaRevisionReader revisionReader = new WikipediaRevisionReader();
         Scanner scanner= new Scanner(System.in);
         String line = scanner.nextLine();
-        try{
-            String timestamp = revisionReader.getLatestRevisionOf(line);
-            System.out.println(timestamp);
-        }catch(IOException ioException){
-            System.err.println("Network connection problem: "+ioException.getMessage());
-        }
+        String timestamp = revisionReader.getLatestRevisionOf(line);
+        System.out.println(timestamp);
     }
 
-    private String getLatestRevisionOf(String line) {
+    public String getLatestRevisionOf(String line) {
         String urlString= String.format("https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&titles=%s&rvprop=timestamp&rvlimit=1"),
         articleTitle;
         String encodedUrlString = URLEncoder.encode(urlString, Charset.defaultCharset());
@@ -30,8 +26,9 @@ public class WikipediaRevisionReader {
             URLConnection.setRequestProperty("User-Agent","WikipediaRevisionReader/0.1(landen.finlinson@bsu.edu)");
             InputStream inputStream = URLConnection.getInputStream();
 
-        }catch (MalformedURLException malformedURLException){
+        }catch (IOException malformedURLException){
             throw new RuntimeException(malformedURLException);
         }
+        return urlString;
     }
 }

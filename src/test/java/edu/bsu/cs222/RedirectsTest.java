@@ -8,15 +8,15 @@ import org.junit.jupiter.api.Test;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class RedirectTest {
+public class RedirectsTest {
     @Test
     public void redirectionTest() throws IOException {
-        Redirect redirection = new Redirect();
+        Redirects redirection = new Redirects();
         InputStream testDataStream = Thread.currentThread()
                 .getContextClassLoader().getResourceAsStream("zappa.json");
         JSONArray Ridirect = JsonPath.read(testDataStream, "$..*");
         Assertions.assertEquals("",
-                redirection.checkRedirect(Ridirect));
+                redirection.checkRedirect(redirection));
     }
 
 }

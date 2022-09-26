@@ -38,4 +38,8 @@ public class WikipediaRevisionReader {
         Formatter formatter = new Formatter();
         formatter.formatted(usersList, timestampsList);
     }
+
+    public String read(InputStream testDataStream) {
+        return null;
+    }
 }

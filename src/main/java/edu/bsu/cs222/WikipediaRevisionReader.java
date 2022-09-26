@@ -12,16 +12,16 @@ import java.util.Scanner;
 import java.net.URLConnection;
 ////Based on Code by Professor Gestwicki
 public class WikipediaRevisionReader {
-    public static void main (String[]args) throws IOException {
+    public static void main (String[]args) {
         WikipediaRevisionReader revisionReader = new WikipediaRevisionReader();
         Scanner scanner= new Scanner(System.in);
         String line = scanner.nextLine();
-        String timestamp = revisionReader.getLatestRevisionOf(line);
+        String timestamp = revisionReader.getLatestRevisionOf();
         System.out.println(timestamp);
     }
 
-    public String getLatestRevisionOf(String articleTitle)throws IOException {
-        String urlString= String.format("https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&titles=%s&rvprop=timestamp&rvlimit=1");
+    public String getLatestRevisionOf() {
+        String urlString= "https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&titles=%s&rvprop=timestamp&rvlimit=1";
         String encodedUrlString = URLEncoder.encode(urlString, Charset.defaultCharset());
         try{
             URL url = new URL(encodedUrlString);
@@ -29,8 +29,7 @@ public class WikipediaRevisionReader {
             URLConnection.setRequestProperty("User-Agent","edu.bsu.cs222.WikipediaRevisionReader/0.1(landen.finlinson@bsu.edu)");
             InputStream inputStream = URLConnection.getInputStream();
             WikipediaRevisionParser parser = new WikipediaRevisionParser();
-            String timestamp= parser.parse(inputStream);
-            return timestamp;
+            return parser.parse(inputStream);
 
         }catch (IOException malformedURLException){
             throw new RuntimeException(malformedURLException);
@@ -38,7 +37,7 @@ public class WikipediaRevisionReader {
     }
 
     public String read(InputStream testDataStream) throws IOException {
-            JSONArray result= (JSONArray) JsonPath.read(testDataStream, "$..timestamp");
+            JSONArray result= JsonPath.read(testDataStream, "$..timestamp");
             return result.get(0).toString();
     }
 }

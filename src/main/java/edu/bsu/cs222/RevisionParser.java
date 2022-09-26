@@ -14,6 +14,8 @@ import java.util.ArrayList;
 
 ////Based on Code by Professor Gestwicki
 public class RevisionParser {
+    public String checkRevision;
+
     public InputStream encodedUrl(String Title) throws MalformedURLException {
         String apiBaseUrl = ("https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&titles=");
         String revisionLimit = ("&redirects=1&rvlimit=27");

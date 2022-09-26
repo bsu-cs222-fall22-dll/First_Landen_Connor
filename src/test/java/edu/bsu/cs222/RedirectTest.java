@@ -8,15 +8,15 @@ import org.junit.jupiter.api.Test;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class SearchRedirectionTest {
+public class RedirectTest {
     @Test
     public void redirectionTest() throws IOException {
-        SearchRedirection redirection = new SearchRedirection();
+        Redirect redirection = new Redirect();
         InputStream testDataStream = Thread.currentThread()
                 .getContextClassLoader().getResourceAsStream("zappa.json");
-        JSONArray searchRedirection = JsonPath.read(testDataStream, "$..*");
-        Assertions.assertEquals("You were redirected to Frank Zappa",
-                redirection.checkRedirect(searchRedirection));
+        JSONArray Ridirect = JsonPath.read(testDataStream, "$..*");
+        Assertions.assertEquals("",
+                redirection.checkRedirect(Ridirect));
     }
 
 }

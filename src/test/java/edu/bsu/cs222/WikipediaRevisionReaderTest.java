@@ -11,7 +11,7 @@ public class WikipediaRevisionReaderTest {
     public void testReader() throws IOException {
         WikipediaRevisionReader reader = new WikipediaRevisionReader();
         InputStream testDataStream = Thread.currentThread().getContextClassLoader().getResourceAsStream("Zappa.json");
-        String timestamp= reader.read(testDataStream);
+        String timestamp= reader.read();
         Assertions.assertEquals("2022-09-19T02:18:18Z", timestamp);
     }
 }

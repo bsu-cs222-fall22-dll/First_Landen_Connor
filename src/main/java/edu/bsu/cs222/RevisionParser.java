@@ -5,7 +5,6 @@ import net.minidev.json.JSONArray;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
@@ -16,7 +15,7 @@ import java.util.ArrayList;
 public class RevisionParser {
     public String checkRevision;
 
-    public InputStream encodedUrl(String Title) throws MalformedURLException {
+    public InputStream encodedUrl(String Title) {
         String apiBaseUrl = ("https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&titles=");
         String revisionLimit = ("&redirects=1&rvlimit=27");
         String encodedTitleString = URLEncoder.encode(Title, Charset.defaultCharset());
@@ -25,8 +24,7 @@ public class RevisionParser {
             URL url = new URL(encodedUrl);
             URLConnection connection = url.openConnection();
             connection.setRequestProperty("User-Agent", "WikipediaRevisionReader/0.1 (landen.finlinson@bsu.edu)");
-            InputStream inputStream = connection.getInputStream();
-            return inputStream;
+            return connection.getInputStream();
 
         } catch (IOException e) {
             throw new RuntimeException(e);

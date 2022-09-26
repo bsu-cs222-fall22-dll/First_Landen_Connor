@@ -18,7 +18,4 @@ public class WikipediaRevision {
         return String.format("%s made a revision at %s.\n", username, timestamp);
     }
 
-    public String checkRevision() {
-        return null;
-    }
 }

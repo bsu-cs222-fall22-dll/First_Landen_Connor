@@ -10,7 +10,7 @@ public class Redirects {
     public String checkRedirect(InputStream inputStream0) throws IOException {
         JSONArray redirects = JsonPath.read(inputStream0,"$..redirects");
         if (redirects.size() > 0) {
-            return ("Redirects " + (redirects.get(0).toString()));
+            return ("zappa.json" + (redirects.get(0).toString()));
         }
 
         return null;

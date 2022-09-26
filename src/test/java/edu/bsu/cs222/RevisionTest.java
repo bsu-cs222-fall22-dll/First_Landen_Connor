@@ -8,10 +8,12 @@ import java.io.IOException;
 import java.io.InputStream;
 
 public class RevisionTest {
+    private Object WikipediaRevision;
+
     public void Revision() throws IOException {
         WikipediaRevision revision = new WikipediaRevision();
         InputStream testUsername = Thread.currentThread().getContextClassLoader().getResourceAsStream("zappa.json");
         JSONArray Revision = JsonPath.read(testUsername, "$..*");
-        Assertions.assertEquals("", revision.checkRevison(Revision));
+        Assertions.assertEquals("", revision.checkRevision);
     }
 }

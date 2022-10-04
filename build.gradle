@@ -1,5 +1,7 @@
 plugins {
     id 'java'
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.7'
 }
 
 group 'org.example'
@@ -15,6 +17,10 @@ dependencies {
     implementation group: 'com.jayway.jsonpath', name: 'json-path', version: '2.7.0'
 
 
+}
+javafx {
+    modules = [ 'javafx.controls', 'javafx.fxml' ]
+    version = '13.0.2'
 }
 
 test {

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.bsu.cs222.Controller">
+   <children>
+      <Button fx:id="search_btn" layoutX="261.0" layoutY="87.0" mnemonicParsing="false" onAction="#onButtonClick" text="Search">
+         <font>
+            <Font name="Roboto" size="17.0" />
+         </font>
+      </Button>
+      <Label fx:id="title_lb" layoutX="236.0" layoutY="14.0" text="Article Title">
+         <font>
+            <Font name="Roboto" size="25.0" />
+         </font>
+      </Label>
+      <Label fx:id="revisions_lb" layoutX="195.0" layoutY="138.0" text="Revisions for:">
+         <font>
+            <Font name="Roboto" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="userinput_lb" layoutX="311.0" layoutY="138.0" text="Label">
+         <font>
+            <Font name="Roboto" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="title_tb" layoutX="172.0" layoutY="48.0" prefHeight="26.0" prefWidth="253.0" promptText="Enter Article Title">
+         <font>
+            <Font name="Roboto" size="14.0" />
+         </font>
+      </TextField>
+      <TextArea fx:id="results_ta" layoutX="56.0" layoutY="166.0" prefHeight="219.0" prefWidth="488.0" />
+   </children>
+</AnchorPane>

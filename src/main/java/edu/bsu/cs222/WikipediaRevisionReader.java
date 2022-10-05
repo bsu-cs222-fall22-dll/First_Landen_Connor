@@ -1,11 +1,18 @@
 package edu.bsu.cs222;
 
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class WikipediaRevisionReader {
+
     public static void main(String[] args) throws IOException {
         Scanner scanner = new Scanner(System.in);
         String userInput = scanner.nextLine();
@@ -26,4 +33,5 @@ public class WikipediaRevisionReader {
         Formatter formatter = new Formatter();
         formatter.formatted(usersList, timestampsList);
     }
+
 }

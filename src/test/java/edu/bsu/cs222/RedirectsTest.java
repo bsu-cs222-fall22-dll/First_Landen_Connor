@@ -18,5 +18,4 @@ public class RedirectsTest {
         Assertions.assertEquals("",
                 redirection.checkRedirect(redirection));
     }
-
 }

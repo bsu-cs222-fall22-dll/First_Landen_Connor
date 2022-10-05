@@ -35,7 +35,6 @@ public class RevisionParser {
         JSONArray usersArray = JsonPath.read(inputStream, "$..user");
         int listLength = usersArray.size();
         ArrayList<String> usersList = new ArrayList<>();
-
         int i = 0;
         while (i < listLength){
             usersList.add(i,usersArray.get(i).toString());
@@ -53,7 +52,6 @@ public class RevisionParser {
             timestampList.add(i, timestampArray.get(i).toString());
             i++;
         }
-
         return timestampList;
     }
 }

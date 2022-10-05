@@ -11,7 +11,7 @@ public class RevisionTest {
     private Object WikipediaRevision;
 
     public void Revision() throws IOException {
-        WikipediaRevision revision = new WikipediaRevision();
+        RevisionParser revision = new RevisionParser();
         InputStream testUsername = Thread.currentThread().getContextClassLoader().getResourceAsStream("zappa.json");
         JSONArray Revision = JsonPath.read(testUsername, "$..*");
         Assertions.assertEquals("", revision.checkRevision);

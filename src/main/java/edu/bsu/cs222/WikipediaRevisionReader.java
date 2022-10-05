@@ -34,4 +34,7 @@ public class WikipediaRevisionReader {
         formatter.formatted(usersList, timestampsList);
     }
 
+    public String read() {
+        return null;
+    }
 }
